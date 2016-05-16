@@ -1,4 +1,4 @@
-![Screenshot of the program](/screenshot.png?raw=true "Screenshot of the main application with faculty program and compiled bytecode view")
+![Screenshot of the program](/screenshot_small.png?raw=true "Screenshot of the main application with faculty program and compiled bytecode view")
 
 # Theia
 
