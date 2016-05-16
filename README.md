@@ -1,6 +1,6 @@
-![Screenshot of the program](/screenshot_small.png?raw=true "Screenshot of the main application with faculty program and compiled bytecode view")
-
 # Theia
+
+A downloadable version of Theia can be found [here](/dist/theia.jar?raw=true).
 
 In my current theorectial computer science course we are talking about register machines. A register machine consists of registers `x1 ... xk` and executes statements which change the numerical values of this registers. They are "programmed" by the languages LOOP, WHILE and GOTO which have different features. Due to the fact that I really like designing programming languages and like dealing with parsers, lexers and acceptors I wrote a litte application which executes this programs. 
 
@@ -17,6 +17,8 @@ The mandatory faculty example might look like (in the `LOOP` language):
 where register `x1` contains the n to calculate the faculty for.
 
 Starting from the source code Theia parses the text using a tokenizer and creates bytecode which can be executed by the TheiaVM.
+
+[![Screenshot of the program](/screenshot_small.png?raw=true "Screenshot of the main application with faculty program and compiled bytecode view")](/screenshot.png?raw=true).
 
 # Features
 
