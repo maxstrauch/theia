@@ -1,6 +1,6 @@
 # Theia
 
-A downloadable version of Theia can be found [here](/dist/theia.jar?raw=true).
+The recent version of Theia can be found [here (with additional pieces of information)](#download) or [directly downloaded here](/dist/theia.jar?raw=true).
 
 In my current theorectial computer science course we are talking about register machines. A register machine consists of registers `x1 ... xk` and executes statements which change the numerical values of this registers. They are "programmed" by the languages LOOP, WHILE and GOTO which have different features. Due to the fact that I really like designing programming languages and like dealing with parsers, lexers and acceptors I wrote a litte application which executes this programs. 
 
@@ -65,6 +65,13 @@ The grammar for the languages LOOP, WHILE and GOTO is given hereinafter. The "en
 # Bytecode instructions
 
 The source file `de.theia.vm.PrettyPrint` contains all necessary information to infer the virtual machine instructions and arguments. 
+
+# Download
+
+A downloadable version of Theia can be found [here (in `dist/theia.jar`)](/dist/theia.jar?raw=true). The SHA1 sum of Theia version 1.0 is:
+
+	19d72034c74b731205999ec042c82c89117a81dc  theia.jar
+
 
 # License
 
