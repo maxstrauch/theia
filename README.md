@@ -4,7 +4,7 @@
 
 The Theia download can be found [here (with additional pieces of information)](#download) or [directly downloaded here](/dist/theia.jar?raw=true).
 
-In my current theorectial computer science course we are talking about register machines. A register machine consists of registers `x1 ... xk` and executes statements which change the numerical values of this registers. They are "programmed" by the languages LOOP, WHILE and GOTO which have different features. Due to the fact that I really like designing programming languages and like dealing with parsers, lexers and acceptors I wrote a litte application which executes this programs. 
+In my current theorectial computer science course we are talking about register machines. A register machine consists of registers `x1 ... xk` and executes statements which change the numerical values of this registers. They are "programmed" by the languages LOOP, WHILE and GOTO which have different features. Due to the fact that I really like designing programming languages and like dealing with parsers, lexers and acceptors I wrote a litte application which executes those programs. 
 
 The mandatory faculty example might look like (in the `LOOP` language):
 
@@ -22,7 +22,7 @@ Starting from the source code Theia parses the text using a tokenizer and create
 
 # Features
 
- - Theia supports LOOP, WHILE and GOTO programs with "extensions for convenience" (the `if` statemen and expression evaluation, e.g. `x1 + 3` or `2 + 5`)
+ - Theia supports LOOP, WHILE and GOTO programs with "extensions for convenience" (the `if` statement and expression evaluation, e.g. `x1 + 3` or `2 + 5`)
  - Simple grammar (see bellow)
  - Nice GUI using the cute Nimbus LaF
  - Preview compiled bytecode (see screenshot)
