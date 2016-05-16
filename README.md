@@ -1,6 +1,6 @@
 # Theia
 
--> [![Screenshot of the program](/screenshot_small.png?raw=true "Screenshot of the main application with faculty program and compiled bytecode view")](/screenshot.png?raw=true). <-
+[![Screenshot of the program](/screenshot_small.png?raw=true "Screenshot of the main application with faculty program and compiled bytecode view")](/screenshot.png?raw=true).
 
 The Theia download can be found [here (with additional pieces of information)](#download) or [directly downloaded here](/dist/theia.jar?raw=true).
 
