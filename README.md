@@ -1,6 +1,8 @@
 # Theia
 
-The recent version of Theia can be found [here (with additional pieces of information)](#download) or [directly downloaded here](/dist/theia.jar?raw=true).
+-> [![Screenshot of the program](/screenshot_small.png?raw=true "Screenshot of the main application with faculty program and compiled bytecode view")](/screenshot.png?raw=true). <-
+
+The Theia download can be found [here (with additional pieces of information)](#download) or [directly downloaded here](/dist/theia.jar?raw=true).
 
 In my current theorectial computer science course we are talking about register machines. A register machine consists of registers `x1 ... xk` and executes statements which change the numerical values of this registers. They are "programmed" by the languages LOOP, WHILE and GOTO which have different features. Due to the fact that I really like designing programming languages and like dealing with parsers, lexers and acceptors I wrote a litte application which executes this programs. 
 
@@ -17,8 +19,6 @@ The mandatory faculty example might look like (in the `LOOP` language):
 where register `x1` contains the n to calculate the faculty for.
 
 Starting from the source code Theia parses the text using a tokenizer and creates bytecode which can be executed by the TheiaVM.
-
-[![Screenshot of the program](/screenshot_small.png?raw=true "Screenshot of the main application with faculty program and compiled bytecode view")](/screenshot.png?raw=true).
 
 # Features
 
@@ -71,7 +71,6 @@ The source file `de.theia.vm.PrettyPrint` contains all necessary information to 
 A downloadable version of Theia can be found [here (in `dist/theia.jar`)](/dist/theia.jar?raw=true). The SHA1 sum of Theia version 1.0 is:
 
 	19d72034c74b731205999ec042c82c89117a81dc  theia.jar
-
 
 # License
 
