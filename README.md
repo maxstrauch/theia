@@ -1,4 +1,4 @@
-[Theia program icon](/icon.png?raw=true "Theia program icon")
+![Theia program icon](/icon.png?raw=true "Theia program icon")
 
 # Theia
 
