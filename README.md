@@ -1,4 +1,4 @@
-# Theia
+# [Theia program icon](/icon.png?raw=true "Theia program icon") Theia
 
 [![Screenshot of the program](/screenshot_small.png?raw=true "Screenshot of the main application with faculty program and compiled bytecode view")](/screenshot.png?raw=true).
 
@@ -19,6 +19,8 @@ The mandatory faculty example might look like (in the `LOOP` language):
 where register `x1` contains the n to calculate the faculty for.
 
 Starting from the source code Theia parses the text using a tokenizer and creates bytecode which can be executed by the TheiaVM.
+
+This project was developed using Netbeans IDE 8.1 and can be opened directly in Netbeans by checking out this repo and going to `File > Open Project ...`.
 
 # Features
 

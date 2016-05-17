@@ -42,11 +42,15 @@ import de.theia.vm.PrettyPrint;
 import de.theia.vm.RecognitionException;
 import de.theia.vm.VM;
 import de.theia.vm.VMException;
+import java.awt.Image;
 import java.awt.Toolkit;
+import java.awt.Window;
 import java.awt.event.KeyEvent;
+import java.lang.reflect.Method;
 import java.text.MessageFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.List;
 import java.util.TimeZone;
 import javax.swing.InputMap;
 import javax.swing.JTextArea;
@@ -437,7 +441,8 @@ public class Theia extends JPanel implements ActionListener {
                 message, 
                 messages.getString("title.infoModal"), 
                 JOptionPane.INFORMATION_MESSAGE, 
-                Icon.DIALOG_INFO
+                //Icon.DIALOG_INFO
+                new ImageIcon(Icon.getAppIcons().get(3))
         );
     }
     
@@ -539,6 +544,34 @@ public class Theia extends JPanel implements ActionListener {
     }
     
     /**
+     * Applies the biggest icon to the Mac Dock.
+     * 
+     * @param window The window to set the Mac Dock icon for.
+     */
+    public static final void applyMacIcon(Window window) {
+        try {
+            List<Image> images = window.getIconImages();
+            if (images.size() < 1)
+                    return;
+            Image biggest = images.get(0);
+            for (Image image : images) {
+                    if (image.getWidth(null) >= biggest.getWidth(null) &&
+                                    image.getHeight(null) >= biggest.getHeight(null)) {
+                            biggest = image;
+                    }
+            }
+
+            // Set the doc icon using reflection
+            Class<?> c = Class.forName("com.apple.eawt.Application");
+            Object app = c.getMethod("getApplication").invoke(null);
+            Method icon = app.getClass().getMethod("setDockIconImage", Image.class);
+            icon.invoke(app, biggest);
+        } catch (Exception ex) {
+            System.err.println("Failed to set Mac app icon: " + ex);
+        }
+    }
+    
+    /**
      * Returns the currently running GUI instance
      * 
      * @return This instance
@@ -553,6 +586,8 @@ public class Theia extends JPanel implements ActionListener {
     private static void createAndShowGUI() {
         // Create and set up the window
         frame = new JFrame(APP_NAME + " (v " + APP_VERSION + ")");
+        frame.setIconImages(Icon.getAppIcons());
+        applyMacIcon(frame);
         frame.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
 
         //Create and set up the content pane.
@@ -566,7 +601,7 @@ public class Theia extends JPanel implements ActionListener {
                 System.exit(0);
             }
         });
-        
+
         // Display the window
         frame.pack();
         frame.setSize(800, 600);
