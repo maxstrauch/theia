@@ -194,8 +194,7 @@ public class Theia extends JPanel implements ActionListener {
             "loop x1 do\n" +
             "	x2 := x2 * x3 ;\n" +
             "	x3 := x3 - 1\n" +
-            "end\n" +
-            "x3 := 0"
+            "end"
         );
 
         // Main split
@@ -385,7 +384,8 @@ public class Theia extends JPanel implements ActionListener {
             String txt = source.getText();
             Lexer l = new Lexer(txt);
             Compiler c = new Compiler(l, (Language) modeSelection.getSelectedItem());
-            return (int[]) c.compile();
+            int[] bytecode = (int[]) c.compile();
+            return bytecode;
         } catch (RecognitionException e) {
             if (e.hasLineInfo()) {
                 showAlertModal(MessageFormat.format(

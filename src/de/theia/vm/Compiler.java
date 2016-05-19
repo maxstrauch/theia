@@ -70,9 +70,6 @@ public class Compiler {
     private String match(Token token) {
         if (test(token)) {
             lookahead = null;
-            
-            System.out.println("MATCH: " + token + " @ " + lexer.getLexeme());
-            
             return lexer.getLexeme();
         } else {
             throw new RecognitionException(
@@ -225,16 +222,14 @@ public class Compiler {
         // In most cases this is triggered if a SEMICOLON is set at the end
         // of the last statement. But the sequence is defined as "P ; P" therefore
         // no ending SEMICOLON
-        if (test(EOF)) {
+        if (test(EOF) || test(END)) {
             throw new RecognitionException("No statement provided", start, end);
         }
         
-        // Find statements
+        // Find statements. These are all alternatives to each other
         if (test(VAR)) {
             consumeAssign();
-        }
-        
-        if (test(LOOP)) {
+        } else if (test(LOOP)) {
             if (language != Language.LOOP) {
                 throw new RecognitionException(
                         "Illegal statement loop in lang " + language,
@@ -242,9 +237,7 @@ public class Compiler {
                 );
             }
             consumeLoop();
-        }
-        
-        if (test(WHILE)) {
+        } else if (test(WHILE)) {
             if (language != Language.WHILE) {
                 throw new RecognitionException(
                         "Illegal statement while in lang " + language, 
@@ -252,9 +245,8 @@ public class Compiler {
                 );
             }
             consumeWhile();
-        }
-        
-        if (test(IF)) {
+            
+        } else if (test(IF)) {
             consumeIf();
         } 
         
@@ -265,6 +257,28 @@ public class Compiler {
             match(SEMICOLON);
             consumeStmt();
         }
+        
+        // Issue #8:
+        // Terminate if end of file reached or the END statement
+        if (test(EOF) || test(END)) {
+            return;
+        }
+        
+        // Line labels/numbers are not allowed in the other languages
+        if (language != Language.GOTO && test(NUM)) {
+            throw new RecognitionException(
+                "Labels are only allowed in GOTO programs", 
+                start, 
+                end
+            ); 
+        }
+        
+        // Issue #8
+        throw new RecognitionException(
+                "Missing statement after SEMICOLON", 
+                start, 
+                end
+        );
     }
     
     /**

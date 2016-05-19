@@ -24,6 +24,9 @@ public class RecognitionException extends RuntimeException {
         super(message);
         this.from = from;
         this.to = to;
+        this.line = -1;
+        this.pos = -1;
+        this.abs = -1;
     }
     
     public RecognitionException(String message, int line, int pos, int from, int to) {
