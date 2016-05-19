@@ -169,7 +169,7 @@ public class Compiler {
                 int num = Integer.parseInt(match(NUM));
                 if (usedLineNumbers.contains(num)) {
                     throw new RecognitionException(
-                            "Linenubmer '" + num + "' already used",
+                            "Line number '" + num + "' already used",
                             start, end
                     );
                 }
@@ -188,6 +188,15 @@ public class Compiler {
 
                 // Finish this line with a SEMICOLON
                 match(SEMICOLON);
+                
+                // Issue #8: if a GOTO "line" is terminated with a semicolon
+                // another line must follow
+                if (test(EOF)) {
+                    throw new RecognitionException(
+                            "Program ends with semicolon, but this is not allowed",
+                            start, end
+                    );
+                }
             }
             
             // Fill out all jump addresses which were not known during

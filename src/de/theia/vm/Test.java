@@ -9,7 +9,8 @@ public class Test {
  
     public static void main(String[] args) {
         
-        String prog = "   1 : x1 := 1 ;\n   2 : x2 := 1";
+        //String prog = "   1 : x1 := 1 ;\n   2 : x2 := 1";
+        String prog = "1 : x1 := 1 ;";
         
         Lexer l = new Lexer(prog);
         while (l.hasNext()) {
