@@ -70,6 +70,9 @@ public class Compiler {
     private String match(Token token) {
         if (test(token)) {
             lookahead = null;
+            
+            System.out.println("MATCH: " + token + " @ " + lexer.getLexeme());
+            
             return lexer.getLexeme();
         } else {
             throw new RecognitionException(
@@ -246,7 +249,10 @@ public class Compiler {
             consumeIf();
         } 
         
-        if (test(SEMICOLON)) {
+        // Issue #7: this is the sequence statement which only should active
+        // for LOOP/WHILE programs since GOTO programs have their own line
+        // termination semicolon match statement in compile()
+        if (language != Language.GOTO && test(SEMICOLON)) {
             match(SEMICOLON);
             consumeStmt();
         }
