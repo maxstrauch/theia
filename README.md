@@ -22,6 +22,8 @@ Starting from the source code Theia parses the text using a tokenizer and create
 
 This project was developed using Netbeans IDE 8.1 and can be opened directly in Netbeans by checking out this repo and going to `File > Open Project ...`.
 
+Beware of the fact that Theia might contain errors. You are using Theia on your own risk. You can take a look at the bugs [here](https://github.com/maxstrauch/theia/issues).
+
 # Features
 
  - Theia supports LOOP, WHILE and GOTO programs with "extensions for convenience" (the `if` statement and expression evaluation, e.g. `x1 + 3` or `2 + 5`)
