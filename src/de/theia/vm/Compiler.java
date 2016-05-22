@@ -273,9 +273,14 @@ public class Compiler {
             ); 
         }
         
+        // On GOTO language only one statement is recognized
+        if (language == Language.GOTO) {
+            return;
+        }
+        
         // Issue #8
         throw new RecognitionException(
-                "Missing statement after SEMICOLON", 
+                "Missing SEMICOLON after statement", 
                 start, 
                 end
         );
