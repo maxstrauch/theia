@@ -72,9 +72,7 @@ The source file `de.theia.vm.PrettyPrint` contains all necessary information to 
 
 # Download
 
-A downloadable version of Theia can be found [here (in `dist/theia.jar`)](/dist/theia.jar?raw=true). The SHA1 sum of Theia version 1.0 is:
-
-	19d72034c74b731205999ec042c82c89117a81dc  theia.jar
+A downloadable (and the most recent) version of Theia can be found [here (in `dist/theia.jar`)](/dist/theia.jar?raw=true).
 
 # License
 
